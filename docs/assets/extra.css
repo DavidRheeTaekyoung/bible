@@ -1,0 +1,8 @@
+/* 성경 본문 인용은 들여쓰기 + 세리프. 연구 글과 눈으로 구분되게 한다. */
+blockquote.verse, .verse {
+  font-family: "Noto Serif KR", serif;
+  border-left: 3px solid var(--md-accent-fg-color);
+  padding-left: 1em;
+  margin: 1em 0;
+}
+.verse cite { display: block; font-size: 0.85em; opacity: 0.7; margin-top: 0.3em; }
