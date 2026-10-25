@@ -1,0 +1,20 @@
+name: 새 연구
+description: 성경 구절을 넣으면 Claude 가 연구 규율대로 새 글을 써서 올린다 (저장소 주인이 올린 요청만 처리)
+title: "새 연구: "
+labels: ["새연구"]
+body:
+  - type: input
+    id: verse
+    attributes:
+      label: 구절
+      placeholder: "예: 요한복음 3:16 · 창세기 22:1-19"
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: 묻고 싶은 것 (선택)
+      description: 비워 두면 이 본문을 두고 흔히 하는 주장 하나를 골라 검토한다.
+      placeholder: "예: 「독생자」는 원어로 무슨 뜻인가"
+    validations:
+      required: false

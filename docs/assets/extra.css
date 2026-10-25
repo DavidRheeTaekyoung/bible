@@ -6,3 +6,13 @@ blockquote.verse, .verse {
   margin: 1em 0;
 }
 .verse cite { display: block; font-size: 0.85em; opacity: 0.7; margin-top: 0.3em; }
+
+/* 새 연구 요청 양식 */
+.study-form { display: flex; flex-direction: column; gap: 0.4em; max-width: 36em; margin: 1.5em 0; }
+.study-form label { font-weight: 600; margin-top: 0.6em; }
+.study-form input, .study-form textarea {
+  font: inherit; padding: 0.6em 0.7em; border-radius: 4px;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  background: var(--md-default-bg-color); color: var(--md-default-fg-color);
+}
+.study-form button { align-self: flex-start; margin-top: 0.8em; cursor: pointer; }
