@@ -1,0 +1,53 @@
+/* 성경 본문 인용은 들여쓰기 + 세리프. 연구 글과 눈으로 구분되게 한다. */
+blockquote.verse, .verse {
+  font-family: "Noto Serif KR", serif;
+  border-left: 3px solid var(--md-accent-fg-color);
+  padding-left: 1em;
+  margin: 1em 0;
+}
+.verse cite { display: block; font-size: 0.85em; opacity: 0.7; margin-top: 0.3em; }
+
+/* 새 연구 요청 양식 */
+.study-form { display: flex; flex-direction: column; gap: 0.4em; max-width: 36em; margin: 1.5em 0; }
+.study-form label { font-weight: 600; margin-top: 0.6em; }
+.study-form input, .study-form textarea {
+  font: inherit; padding: 0.6em 0.7em; border-radius: 4px;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  background: var(--md-default-bg-color); color: var(--md-default-fg-color);
+}
+.study-form button { align-self: flex-start; margin-top: 0.8em; cursor: pointer; }
+
+/* 메인 페이지 글 목록 — 게시판처럼 한 줄에 글 하나 (hooks/board.py 가 만든다) */
+.md-typeset .board ul { list-style: none; margin: 0.6em 0 0; padding: 0; border-top: 1px solid var(--md-default-fg-color--lightest); }
+.md-typeset .board ul li {
+  display: flex; align-items: baseline; gap: 0.6em;
+  margin: 0; padding: 0.55em 0.1em;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+.md-typeset .board .board-date {
+  flex: none; font-size: 0.78em; opacity: 0.6;
+  font-variant-numeric: tabular-nums; font-family: var(--md-code-font-family, monospace);
+}
+.md-typeset .board .board-cat {
+  flex: none; width: 2.6em; text-align: center; font-size: 0.75em;
+  color: var(--md-accent-fg-color);
+}
+.md-typeset .board a {
+  flex: 1; min-width: 0;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.md-typeset .board-count { font-size: 0.8em; opacity: 0.6; text-align: right; margin-top: 0.4em; }
+
+/* 폰 너비 — 표가 화면 밖으로 밀리지 않게 한다(사이트 전체).
+   Material 은 표 칸에 최소 너비를 주고 가로 스크롤을 붙이는데, 폰에서는 넷째 칸이 잘려 보인다.
+   좁은 화면에서는 글자·여백을 줄이고 칸 최소 너비를 풀어 화면 안에서 줄바꿈하게 한다. */
+@media screen and (max-width: 44.9375em) {
+  .md-typeset table:not([class]) { display: table; width: 100%; font-size: 0.66rem; table-layout: auto; }
+  .md-typeset table:not([class]) th,
+  .md-typeset table:not([class]) td {
+    min-width: 0; padding: 0.55em 0.5em;
+    word-break: keep-all; overflow-wrap: anywhere;
+  }
+  .md-typeset__scrollwrap { margin-left: 0; margin-right: 0; }
+  .md-typeset__table { padding: 0; display: block; }
+}
