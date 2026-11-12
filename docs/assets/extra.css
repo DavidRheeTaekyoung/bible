@@ -16,3 +16,24 @@ blockquote.verse, .verse {
   background: var(--md-default-bg-color); color: var(--md-default-fg-color);
 }
 .study-form button { align-self: flex-start; margin-top: 0.8em; cursor: pointer; }
+
+/* 메인 페이지 글 목록 — 게시판처럼 한 줄에 글 하나 (hooks/board.py 가 만든다) */
+.md-typeset .board ul { list-style: none; margin: 0.6em 0 0; padding: 0; border-top: 1px solid var(--md-default-fg-color--lightest); }
+.md-typeset .board ul li {
+  display: flex; align-items: baseline; gap: 0.6em;
+  margin: 0; padding: 0.55em 0.1em;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+.md-typeset .board .board-date {
+  flex: none; font-size: 0.78em; opacity: 0.6;
+  font-variant-numeric: tabular-nums; font-family: var(--md-code-font-family, monospace);
+}
+.md-typeset .board .board-cat {
+  flex: none; width: 2.6em; text-align: center; font-size: 0.75em;
+  color: var(--md-accent-fg-color);
+}
+.md-typeset .board a {
+  flex: 1; min-width: 0;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.md-typeset .board-count { font-size: 0.8em; opacity: 0.6; text-align: right; margin-top: 0.4em; }
