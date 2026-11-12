@@ -37,3 +37,17 @@ blockquote.verse, .verse {
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .md-typeset .board-count { font-size: 0.8em; opacity: 0.6; text-align: right; margin-top: 0.4em; }
+
+/* 폰 너비 — 표가 화면 밖으로 밀리지 않게 한다(사이트 전체).
+   Material 은 표 칸에 최소 너비를 주고 가로 스크롤을 붙이는데, 폰에서는 넷째 칸이 잘려 보인다.
+   좁은 화면에서는 글자·여백을 줄이고 칸 최소 너비를 풀어 화면 안에서 줄바꿈하게 한다. */
+@media screen and (max-width: 44.9375em) {
+  .md-typeset table:not([class]) { display: table; width: 100%; font-size: 0.66rem; table-layout: auto; }
+  .md-typeset table:not([class]) th,
+  .md-typeset table:not([class]) td {
+    min-width: 0; padding: 0.55em 0.5em;
+    word-break: keep-all; overflow-wrap: anywhere;
+  }
+  .md-typeset__scrollwrap { margin-left: 0; margin-right: 0; }
+  .md-typeset__table { padding: 0; display: block; }
+}
